@@ -3,9 +3,8 @@ CREATE TABLE ChiTietDonHangBan (
     id_don_hang_ban INTEGER NOT NULL,
     id_san_pham INTEGER NOT NULL,
     so_luong INTEGER NOT NULL CHECK (so_luong > 0),
-    gia_von_don_vi NUMERIC(12, 0) NOT NULL CHECK (gia_von_don_vi >= 0),
     gia_ban_niem_yet_don_vi NUMERIC(12, 0) NOT NULL CHECK (gia_ban_niem_yet_don_vi >= 0),
-    loai_giam_gia VARCHAR(100) NULL, -- Mặc định là NULL
+    giam_gia NUMERIC(5,2)NOT NULL CHECK (giam_gia >= 0 AND giam_gia <= 1), -- Phần trăm giảm giá, ví dụ: 10% sẽ là 0.10
     gia_ban_cuoi_cung_don_vi NUMERIC(12, 0) NOT NULL CHECK (gia_ban_cuoi_cung_don_vi >= 0),
     ghi_chu TEXT NULL,
     CONSTRAINT fk_don_hang_ban_chitiet
